@@ -27,7 +27,7 @@ case $yn in
       wget -O "$FOUNDRY_APP_DIR/foundryvtt.zip" "$FOUNDRY_URL"
       
       # Update Date Time
-      sed -i -e '$aNTP=time.google.com' /etc/systemd/timesyncd.conf
+      sudo sed -i -e '$aNTP=time.google.com' /etc/systemd/timesyncd.conf
       sudo timedatectl set-ntp true
       sudo systemctl restart systemd-timesyncd.service
       
