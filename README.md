@@ -10,11 +10,16 @@ The rest of the variables are generally good practice but feel free to change th
 Once you start the install it will ask if this is a first time install, and then goes through a series of installs.
 -=Be sure you've already updated your OS apps=-
 
-# Update Date Time
-This is specific to my setup, but I assume others may have this problem too. By default my Ubuntu Server installs point to my Gateway as the NTP, and of course my gateway is not running NTP. So this command just quickly updates your NTP to be Google's time server.
+
 
 # Setup Foundry Install
 This downloads the Foundry installer and holds onto it until a later step. Some of the other steps can take awhile and your Time URL can expire, so that's why this step happens here.
+
+# Update Date Time
+This is specific to my setup, but I assume others may have this problem too. By default my Ubuntu Server installs point to my Gateway as the NTP, and of course my gateway is not running NTP. So this command just quickly updates your NTP to be Google's time server.
+
+# Update the OS Packages
+In case you forget to do this, this will update all the application packages on your OS before  you proceed further. It's usually best practice, but we all get lazy and space it at times. No judgement. 
 
 # Setup Node Preqeqs
 Version 18 seems to be pretty stable. I haven't messed with any of the later versions. Modify at your own risk, but feel free to mess with it.
