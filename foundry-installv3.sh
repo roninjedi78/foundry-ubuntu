@@ -22,15 +22,19 @@ read -p "Is this the first install? (y/n) " yn
 
 case $yn in 
 	[yY] ) echo "Setting up first install..."
+      # Setup Foundry Install
+      mkdir -p "$FOUNDRY_APP_DIR" "$FOUNDRY_DATA_DIR"
+      wget -O "$FOUNDRY_APP_DIR/foundryvtt.zip" "$FOUNDRY_URL"
+      
       # Update Date Time
       sed -i -e '$aNTP=time.google.com' /etc/systemd/timesyncd.conf
       sudo timedatectl set-ntp true
       sudo systemctl restart systemd-timesyncd.service
       
-      # Setup Foundry Install
-      mkdir -p "$FOUNDRY_APP_DIR" "$FOUNDRY_DATA_DIR"
-      wget -O "$FOUNDRY_APP_DIR/foundryvtt.zip" "$FOUNDRY_URL"
-
+      # Update the OS Packages
+      sudo apt update
+      sudo apt upgrade -y
+      
       # Setup Node prerequisites
       curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
       
