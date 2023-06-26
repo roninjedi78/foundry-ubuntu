@@ -25,7 +25,7 @@ case $yn in
       # Update Date Time
       sed -i -e '$aNTP=time.google.com' /etc/systemd/timesyncd.conf
       sudo timedatectl set-ntp true
-      timedatectl
+      sudo systemctl restart systemd-timesyncd.service
       
       # Setup Foundry Install
       mkdir -p "$FOUNDRY_APP_DIR" "$FOUNDRY_DATA_DIR"
